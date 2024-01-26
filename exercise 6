@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+
+    Note right of browser: The new note is sent to server containing data and timestamp in JSON format
+
+    server-->>browser: Status code:201 Created
+    deactivate server
+
+    Note left of server: the browser stays on the same page and sends no further HTTP requests
+
+    Note right of browser: the new note is added in the page
